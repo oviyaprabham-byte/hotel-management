@@ -14,7 +14,6 @@ function HotelDetails() {
       .get(`https://hotel-management-samn.onrender.com/api/hotels/${id}`)
       .then((response) => {
         setHotel(response.data);
-        document.title = `${response.data.title} - HotelNest`;
       })
       .catch((error) => {
         console.error("Error fetching hotel:", error);
@@ -47,7 +46,6 @@ function HotelDetails() {
     <div className="hotel-details-page">
       <Helmet>
         <title>{hotel.title} - HotelNest</title>
-
         <meta name="description" content={hotel.description} />
       </Helmet>
 

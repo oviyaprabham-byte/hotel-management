@@ -17,16 +17,19 @@ function HotelList() {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/hotels", {
-          params: {
-            title: search,
-            minPrice: minPrice,
-            maxPrice: maxPrice,
-            limit: hotelsPerPage,
-            offset: (currentPage - 1) * hotelsPerPage,
+        const response = await axios.get(
+          "https://hotel-management-samn.onrender.com/api/hotels",
+          {
+            params: {
+              title: search,
+              minPrice: minPrice,
+              maxPrice: maxPrice,
+              limit: hotelsPerPage,
+              offset: (currentPage - 1) * hotelsPerPage,
+            },
           },
-        });
-       dispatch(setHotels(response.data.hotels));
+        );
+        dispatch(setHotels(response.data.hotels));
       } catch (error) {
         console.error("Error fetching hotels:", error);
       }

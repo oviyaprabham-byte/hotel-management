@@ -11,7 +11,7 @@ function HotelDetails() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/hotels/${id}`)
+      .get(`https://hotel-management-samn.onrender.com/api/hotels/${id}`)
       .then((response) => {
         setHotel(response.data);
         document.title = `${response.data.title} - HotelNest`;
@@ -59,7 +59,7 @@ function HotelDetails() {
         <div className="details-image-section">
           {hotel.image ? (
             <img
-              src={`http://localhost:5000/uploads/${hotel.image}`}
+              src={`https://hotel-management-samn.onrender.com/uploads/${hotel.image}`}
               alt={hotel.title}
               className="hotel-details-image"
             />

@@ -10,11 +10,12 @@ function HotelCard({ hotel, onDelete }) {
     );
     if (!confirmDelete) return;
     try {
-      await axios.delete(`http://localhost:5000/api/hotels/${hotel.id}`);
+      await axios.delete(
+        `https://hotel-management-samn.onrender.com/api/hotels/${hotel.id}`,
+      );
       alert("Hotel deleted successfully!");
       onDelete(hotel.id);
-    } 
-    catch (error) {
+    } catch (error) {
       console.error("Error deleting hotel:", error);
       alert("Failed to delete hotel");
     }
@@ -24,7 +25,7 @@ function HotelCard({ hotel, onDelete }) {
     <div className="hotel-card" onClick={() => navigate(`/hotel/${hotel.id}`)}>
       {hotel.image ? (
         <img
-          src={`http://localhost:5000/uploads/${hotel.image}`}
+          src={`https://hotel-management-samn.onrender.com/uploads/${hotel.image}`}
           alt={hotel.title}
           className="hotel-image"
         />

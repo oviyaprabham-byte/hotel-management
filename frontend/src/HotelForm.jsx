@@ -21,7 +21,7 @@ function HotelForm() {
   useEffect(() => {
     if (id) {
       axios
-        .get(`http://localhost:5000/api/hotels/${id}`)
+        .get(`https://hotel-management-samn.onrender.com/api/hotels/${id}`)
         .then((response) => {
           const hotel = response.data;
 
@@ -32,7 +32,9 @@ function HotelForm() {
           setPrice(hotel.price);
 
           if (hotel.image) {
-            setImagePreview(`http://localhost:5000/uploads/${hotel.image}`);
+            setImagePreview(
+              `https://hotel-management-samn.onrender.com/uploads/${hotel.image}`,
+            );
           }
         })
         .catch((error) => {
@@ -74,7 +76,7 @@ function HotelForm() {
     try {
       if (id) {
         const response = await axios.put(
-          `http://localhost:5000/api/hotels/${id}`,
+          `https://hotel-management-samn.onrender.com/api/hotels/${id}`,
           formData,
         );
 
@@ -85,7 +87,7 @@ function HotelForm() {
         navigate("/");
       } else {
         const response = await axios.post(
-          "http://localhost:5000/api/hotels",
+          "https://hotel-management-samn.onrender.com/api/hotels",
           formData,
         );
 

@@ -20,6 +20,11 @@ function HotelDetails() {
         console.error("Error fetching hotel:", error);
       });
   }, [id]);
+  useEffect(() => {
+    if (hotel?.title) {
+      document.title = `${hotel.title} - HotelNest`;
+    }
+  }, [hotel]);
 
   useEffect(() => {
     if (navigator.geolocation) {

@@ -18,7 +18,7 @@ function HotelList() {
     const fetchHotels = async () => {
       try {
         const response = await axios.get(
-          "https://hotel-management-samn.onrender.com/api/hotels",
+          "https://hotelnest-backend.onrender.com/api/hotels",
           {
             params: {
               title: search,
